@@ -14,8 +14,21 @@ add_action('init', function() {
 		'public' => true,
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-store',
-		'supports' => ['thumbnail', 'title', 'editor'],
-		'has_archive' => true
+		'supports' => ['thumbnail', 'title', 'editor', 'page-attributes'],
+		'has_archive' => true,
+		'hierarchical' => true,
+		'show_in_rest' => true,
+	]);
+
+	register_taxonomy('genre', 'item', [
+		'label' => '商品ジャンル',
+		'hierarchical' => true,
+		'show_in_rest' => true,
+	]);
+
+	register_taxonomy('item_tag', 'item', [
+		'label' => '商品タグ',
+		'show_in_rest' => true
 	]);
 });
 
